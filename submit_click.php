@@ -7,7 +7,13 @@ if (! isset($_GET['game_id']) || ! isset($_GET['i'])) {
     exit();
 }
 
-dibi::query("INSERT INTO `clicks_v3` (`game_uid`, `location`, `ip`) VALUES ('".$_GET['game_id']."', '".$_GET['i']."', '".$_SERVER['REMOTE_ADDR']."');");
+$arr = [
+    'game_uid' => $_GET['game_id'],
+    'location'  => $_GET['i'],
+    'ip'  => $_SERVER['REMOTE_ADDR'],
+];
+
+dibi::query('INSERT INTO `clicks_v3` %v', $arr);
 echo('OK');
 
 ?>
