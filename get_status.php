@@ -7,7 +7,7 @@ if (! isset($_GET['game_id'])) {
     exit();
 }
 
-$result = dibi::query("SELECT * FROM `clicks_v3` WHERE game_uid = '".$_GET['game_id']."'");
+$result = dibi::query('SELECT * FROM `clicks_v3` WHERE game_uid = %s', $_GET['game_id']);
 
 
 $r = array();

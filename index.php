@@ -11,7 +11,7 @@ $game_data;
 $seed = rand(1000, 9999);
 
 if (isset($_GET['game_id'])) {
-    $game_data = dibi::fetch("SELECT * FROM `games_v3` WHERE uid = '".$_GET['game_id']."'");
+    $game_data = dibi::fetch('SELECT * FROM `games_v3` WHERE uid = %s', $_GET['game_id']);
 }
 
 if (! isset($_GET['game_id']) || !$game_data) {
@@ -23,17 +23,25 @@ if (! isset($_GET['game_id']) || !$game_data) {
     $words_raw = file_get_contents('http://slova.cetba.eu/generate.php?number='.($size_x*$size_y));
     die();
 
-    if(dibi::fetch("SELECT * FROM `games_v3` WHERE uid = '".$uid."'")) {
+    if(dibi::fetch("SELECT * FROM `games_v3` WHERE uid = %s", $uid)) {
         header("Location: ./");
     }
 
-    dibi::query("INSERT INTO `games_v3` (`words`, `hint`, `width`, `height`, `uid`) VALUES ('".$words_raw."', '".implode("", $cells)."', '".$size_x."', '".$size_y."', '".$uid."');");
+    $arr = [
+        'words' => $words_raw,
+        'hint'  => implode("", $cells),
+        'width'  => $size_x,
+        'height'  => $size_y,
+        'uid'  => $uid,
+    ];
+
+    dibi::query("INSERT INTO `games_v3` %v", $arr);
 
     header("Location: ./?game_id=".$uid);
     exit();
 }
 
-$game_data = dibi::fetch("SELECT * FROM `games_v3` WHERE uid = '".$_GET['game_id']."'");
+$game_data = dibi::fetch("SELECT * FROM `games_v3` WHERE uid = %s", $_GET['game_id']);
 $size_x = $game_data['width'];
 $size_y = $game_data['height'];
 $cells = str_split($game_data['hint']);
