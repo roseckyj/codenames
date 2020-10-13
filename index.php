@@ -1,5 +1,7 @@
 <?php
+mb_internal_encoding("UTF-8");
 
+require "dibi/dibi.php";
 require "php_connect.php";
 include 'generator.php';
 
