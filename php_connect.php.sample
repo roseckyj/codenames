@@ -1,0 +1,14 @@
+<?php
+require "dibi/dibi.php";
+
+mb_internal_encoding("UTF-8");
+
+dibi::connect(array(
+              'driver'   => 'mysqli',
+              'host'     => 'localhost',
+              'username' => 'localhost',
+              'password' => 'localhost',
+              'database' => 'codenames',
+              'charset'  => 'utf8',
+          ));
+?>

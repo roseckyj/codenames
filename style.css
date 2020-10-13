@@ -1,0 +1,152 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.card {
+    width: 200px;
+    padding-top: 80px;
+    height: 55px;
+    border-radius: 10px;
+    background-image: url('img/card200x200.jpg');
+    box-shadow: -5px -5px 5px 0px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.small .card {
+    padding-top: 30px;
+    height: 105px;
+    border-radius: 10px;
+    background-color: #F5E6CD;
+    background-image: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    word-wrap: break-word;
+}
+
+.small .card.hint1 { background-image: url('img/bookmark_red.png'); }
+.small .card.hint2 { background-image: url('img/bookmark_blue.png'); }
+.small .card.hint4 { background-image: url('img/bookmark_black.png'); }
+
+.small .upside-down {
+    display: none;
+}
+
+.card_wrapper {
+    position: absolute;
+}
+
+.card_wrapper:nth-child(even) .card { -ms-transform: translate(-50%, -50%) rotate(-1deg); -webkit-transform: translate(-50%, -50%) rotate(-1deg); transform: translate(-50%, -50%) rotate(-1deg); }
+.card_wrapper:nth-child(odd) .card  { -ms-transform: translate(-50%, -50%) rotate(2deg); -webkit-transform: translate(-50%, -50%) rotate(2deg); transform: translate(-50%, -50%) rotate(2deg); }
+.card_wrapper:nth-child(3n+0) .card { -ms-transform: translate(-50%, -50%) rotate(-3deg) !important; -webkit-transform: translate(-50%, -50%) rotate(-3deg) !important; transform: translate(-50%, -50%) rotate(-3deg) !important; }
+
+.card.hint1 { background-image: url('img/card_red.jpg'); }
+.card.hint2 { background-image: url('img/card_blue.jpg'); }
+.card.hint4 { background-image: url('img/card_black.jpg'); }
+
+.upside-down {
+    position: absolute;
+    top: 50px;
+    transform: rotate(180deg);
+    right: 70px;
+    left: 25px;
+    font-size: 12px;
+    font-style: italic;
+    opacity: 0.6;
+}
+
+.solved {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+    background-size: cover;
+    z-index: 10;
+}
+
+.sol1 {
+    background-image: url('img/red.jpg');
+}
+
+.sol2 {
+    background-image: url('img/blue.jpg');
+}
+
+.sol3 {
+    background-image: url('img/gray.jpg');
+}
+
+.sol4 {
+    background-image: url('img/black.jpg');
+}
+
+.seed_bg { position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 99; background-color: rgba(0,0,0,0.95); }
+.seed { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 100px; }
+.seed_title { font-size: 20px; }
+.seed .button { display: inline-block; font-size: 20px; padding: 20px; border: solid 2px white; border-radius: 20px; width: 200px; margin: 0 20px 20px 20px; cursor: pointer; }
+.seed .button:hover { background-color: white; color: black; }
+.seed .button .subtitle { display: block; font-size: 12px; margin-top: 5px; }
+.seed_bg .footer { position: absolute; bottom: 20px; left: 0; right: 0; font-size: 12px; }
+.seed_bg .footer a { color: white; opacity: 0.5; text-decoration: none; }
+.seed_bg .footer a:hover { opacity: 1; }
+
+.wrapper {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.remaining {
+    width: 30px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 12px;
+    line-height: 30px;
+    position: absolute;
+    color: white;
+    background-position: right center;
+    background-size: cover;
+}
+.remaining.remaining-blue {
+    background-image: url('img/bookmark_blue.png');
+    left: 0px;
+    top: 10px;
+}
+.remaining.remaining-red {
+    background-image: url('img/bookmark_red.png');
+    left: 0px;
+    top: 40px;
+}
+
+.remaining.small {
+    width: 15px;
+    height: 15px;
+    padding-left: 2px;
+    padding-right: 6px;
+    line-height: 15px;
+    font-size: .6rem;
+}
+.remaining.remaining-blue.small {
+    top: 5px;
+}
+.remaining.remaining-red.small {
+    top: 25px;
+}
